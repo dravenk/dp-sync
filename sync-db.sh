@@ -28,6 +28,6 @@ echo "Copy $LOCAL_FILE into $LOCAL_CONTAINER"
 eval "docker cp $REMOTE_FILE $LOCAL_CONTAINER:/tmp/"
 
 echo "Drop all $LOCAL_CONTAINER tables. Importing $REMOTE_FILE into $LOCAL_CONTAINER"
-eval "docker exec -i $LOCAL_CONTAINER sh -c 'drush sql-drop -vy; gunzip -c /tmp/$REMOTE_FILE | drush sqlc; drush cr'"
+eval "docker exec -i $LOCAL_CONTAINER sh -c 'cd /var/www/html;drush sql-drop -vy; gunzip -c /tmp/$REMOTE_FILE | drush sqlc; drush cr'"
 
 echo "Done!"
