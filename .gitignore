@@ -1,1 +1,4 @@
 *.gz
+*.sh
+!sync-db.sh
+
